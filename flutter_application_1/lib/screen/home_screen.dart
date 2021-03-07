@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screen/example.dart';
+import 'package:flutter_application_1/screen/form_screen.dart';
+import 'package:flutter_application_1/screen/list_view_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
@@ -12,10 +15,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
+        //โครงสร้างของบ้าน
         drawer: Drawer(
+          //ลิ้นชักด่านข้าง
           child: Text("Hello Drawer"),
         ),
         appBar: AppBar(
+          //แถบด่านบน
           title: Text(
             "HomePage",
           ),
@@ -32,6 +38,55 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Image.asset(
                   'assets/images/dog.jpg',
                 ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ListViewScreen(),
+                    ),
+                  );
+                },
+                child: Text("กดปุ่มนี้"),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => FormScreen(),
+                    ),
+                  );
+                },
+                child: Text("FormScreen"),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Example(),
+                    ),
+                  );
+                },
+                child: Text("Example"),
+              ),
+              DropdownButton(
+                hint: Text("please check"),
+                items: [
+                  DropdownMenuItem(
+                    onTap: () {},
+                    value: 1,
+                    child: Text("Button"),
+                  ),
+                  DropdownMenuItem(
+                    onTap: () {},
+                    value: 1,
+                    child: Text("Button"),
+                  )
+                ],
+                onChanged: (int value) {},
               ),
             ],
           ),
